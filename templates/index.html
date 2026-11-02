@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Website Health Monitoring System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>Website Health Monitor</h1>
+                <p>Real-time website availability dashboard</p>
+            </div>
+
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                LIVE MONITORING
+            </div>
+        </header>
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Websites</p>
+                <h2 id="total">0</h2>
+                <span>Websites monitored</span>
+            </div>
+
+            <div class="stat-card online-card">
+                <p>Online Websites</p>
+                <h2 id="online">0</h2>
+                <span>Services available</span>
+            </div>
+
+            <div class="stat-card offline-card">
+                <p>Offline Websites</p>
+                <h2 id="offline">0</h2>
+                <span>Services unavailable</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Average Response Time</p>
+                <h2 id="average">0 ms</h2>
+                <span>Average website speed</span>
+            </div>
+
+        </section>
+
+        <!-- Monitoring Section -->
+        <section class="monitor-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Website Monitoring</h2>
+                    <p>Check the availability of your websites</p>
+                </div>
+
+                <button id="checkBtn" class="check-btn">
+                    ↻ Check Now
+                </button>
+            </div>
+
+            <!-- Add Website -->
+            <div class="add-website">
+                <input
+                    type="url"
+                    id="websiteInput"
+                    placeholder="Enter website URL (https://example.com)"
+                >
+
+                <button id="addBtn">+ Add Website</button>
+            </div>
+
+            <p id="message"></p>
+
+            <!-- Website Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>WEBSITE</th>
+                            <th>STATUS</th>
+                            <th>HTTP CODE</th>
+                            <th>RESPONSE TIME</th>
+                            <th>LAST CHECKED</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="websiteTable">
+
+                        <tr>
+                            <td colspan="5">Loading website data...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Website Health Monitoring System |
+                Built with Python & Flask
+            </p>
+
+            <p id="lastUpdated">Waiting for first check...</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
